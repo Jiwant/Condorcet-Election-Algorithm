@@ -1,0 +1,56 @@
+﻿<!--
+    Jiwant Singh
+    Nihal Ahmed Gesudraz
+    Apoorva Solanki
+    Kiranpreet Kaur
+    Harkirat Kaur
+-->
+    <Window x:Class="Condorcet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Condorcet"
+        mc:Ignorable="d"
+        xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Condorcet Winner" Height="525" Width="625" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.25*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Style="{StaticResource MaterialDesignHeadlineTextBlock}" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">Condorcet Winner</TextBlock>
+        <Label Name="LblVoter" Grid.Row="1" Grid.Column="0" FontSize="18" VerticalAlignment="Center" Margin="30,0,0,0">Enter The Number of Voters</Label>
+        <TextBox Name="TbxVoter" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="24" Margin="0,0,30,0" Text="{Binding NumVoter}"></TextBox>
+        <Label Name="LblCandidate" Grid.Row="2" Grid.Column="0" FontSize="18" VerticalAlignment="Center" Margin="30,0,0,0">Enter The Number of Candidates</Label>
+        <TextBox Name="TbxCandidate" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="24" Margin="0,0,30,0" Text="{Binding NumCand}"></TextBox>
+        <Label Grid.Row="3" Grid.ColumnSpan="2" FontSize="20"  Margin="30,0,0,0">Enter The Voter Preferences</Label>
+        <TextBox Name="TbxPreferences" Grid.Row="4" Grid.ColumnSpan="2" Margin="30,0,30,10" TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding Pref}"></TextBox>
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Button Name="BtnFindWinner"  Width="200" FontSize="20" Margin="0,0,20,0" Style="{StaticResource MaterialDesignRaisedAccentButton}" Click="FindWinner">
+                Find Winner
+            </Button>
+            <Button Name="BtnReset"  Width="200" FontSize="20" Margin="20,0,0,0" Style="{StaticResource MaterialDesignRaisedAccentButton}" Click="Reset">
+                Reset
+            </Button>
+        </StackPanel>
+        <TextBlock Name="Result" Grid.Row="6" Grid.ColumnSpan="2" FontSize="24" VerticalAlignment="Center" Margin="30,0,30,0" Text="{Binding Res}"></TextBlock>
+    </Grid>
+</Window>
